@@ -1,0 +1,23 @@
+<header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+      </div>
+  
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let link of navbarLinks">
+          <a [routerLink]="link.route">{{link.text}}</a>
+        </li>  
+      </ul>
+  
+      <button class="btn btn-primary">
+        <a routerLink="#contact"> <p class="btn-text">view assesment</p></a>
+      </button>
+  
+      <button  class="nav-toggle-btn">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
+    </nav>
+  </header>
+
