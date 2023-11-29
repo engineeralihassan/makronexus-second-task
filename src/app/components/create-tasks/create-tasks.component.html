@@ -9,7 +9,6 @@
     </select>
     <button type="submit" (click)="onSubmit()" >Add task</button>
 </form>
-<div  *ngIf="submiting" class="loader"></div>
-    </div>
+<app-loader [isLoading]="submiting"></app-loader>
 
 </div>

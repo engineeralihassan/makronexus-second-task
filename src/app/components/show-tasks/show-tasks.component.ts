@@ -7,13 +7,16 @@ import { TaskService } from 'src/app/task.service';
 })
 export class ShowTasksComponent {
   tasks: any[]=[];
+  loading!:boolean;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
+    this.loading=true;
     this.taskService.getTasks().subscribe((tasks) => {
       console.log("Tasks list :",tasks);
       this.tasks = tasks;
+      this.loading=false;
     });
   }
   deleteTask(id:any): void {

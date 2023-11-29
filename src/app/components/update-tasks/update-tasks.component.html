@@ -9,7 +9,6 @@
     </select>
     <button type="submit" (click)="updateTask()" >update task</button>
 </form>
-<div  *ngIf="loading || updating" class="loader"></div>
-    </div>
+<app-loader [isLoading]="loading || updating"></app-loader>
 
 </div>

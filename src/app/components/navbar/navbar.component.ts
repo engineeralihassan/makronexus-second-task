@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  navbarLinks:any[]=[{text:'tasks',route:''}, {text:'add',route:'/add'},{text:'task',route:'detail/1'}];
+  navbarLinks:any[]=[{text:'tasks',route:''}, {text:'add',route:'/add'}];
 
 }
