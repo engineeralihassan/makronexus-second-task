@@ -14,7 +14,10 @@ export class CreateTasksComponent {
   constructor(private fb: FormBuilder, private taskService: TaskService) {}
 
   ngOnInit(): void {
-    localStorage.setItem('taskid','300')
+    if(!localStorage.getItem('taskid')){
+      localStorage.setItem('taskid','18')
+    }
+    
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       completed: ['false', Validators.required],
