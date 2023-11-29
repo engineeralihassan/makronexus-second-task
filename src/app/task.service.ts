@@ -22,7 +22,10 @@ export class TaskService {
     const url = `${this.apiUrl}/${task.id}`;
     return this.http.put<any>(url, task);
   }
-
+  getTaskById(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
+  }
   deleteTask(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);

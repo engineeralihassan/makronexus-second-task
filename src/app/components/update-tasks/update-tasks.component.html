@@ -1,1 +1,15 @@
-<p style="margin-top: 9rem;">update-tasks works!</p>
+<div class="task-add" style="margin-top: 20rem;">
+    <div class="form-container">
+        <h1>update Task</h1>
+<form [formGroup]="taskForm" *ngIf="!loading && !updating">
+    <input type="text" placeholder="Enter title please" formControlName="title">
+    <select name="" id="" formControlName="completed">
+        <option value="true">true</option>
+        <option value="false">false</option>
+    </select>
+    <button type="submit" (click)="updateTask()" >Add task</button>
+</form>
+<div  *ngIf="loading || updating" class="loader"></div>
+    </div>
+
+</div>

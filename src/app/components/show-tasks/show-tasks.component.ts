@@ -16,4 +16,14 @@ export class ShowTasksComponent {
       this.tasks = tasks;
     });
   }
+  deleteTask(id:any): void {
+    const userConfirmed = confirm('Are you sure you want to delete this task?');
+
+    if (userConfirmed) {
+      this.taskService.deleteTask(id).subscribe(() => {
+        alert("Deleted Successfully");
+         window.location.reload();
+      });
+    }
+  }
 }

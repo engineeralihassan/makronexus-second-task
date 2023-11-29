@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/task.service';
 })
 export class CreateTasksComponent {
   taskForm!: FormGroup;
+  submiting:boolean=false;
 
   constructor(private fb: FormBuilder, private taskService: TaskService) {}
 
@@ -16,23 +17,27 @@ export class CreateTasksComponent {
     localStorage.setItem('taskid','300')
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
-      completed: ['', Validators.required],
+      completed: ['false', Validators.required],
     });
   }
 
   onSubmit(): void {
-    
+    this.submiting=true;
     let localid=localStorage.getItem('taskid');
-alert("submittions");
-    // if (this.taskForm.valid) {
+     if (this.taskForm.valid) {
       const newTask = {userId:1,id:this.convertintoNumber(localid),title:this.taskForm.value.title,completed:this.taskForm.value.completed==='false'?false:true}
       this.taskService.addTask(newTask).subscribe((task:any) => {
         console.log('Task added successfully:', task);
-        alert("hurray")
+        alert("Task added successfully");
+        this.taskForm.reset();
+        this.submiting=false;
+        localStorage.setItem('taskid',`${newTask.id.toString()}`);
       });
-    // }
+     } else{
+      alert("Please fill all values");
+     }
   }
   convertintoNumber(id:any){
-    return +id;
+    return +id+1;
   }
 }
